@@ -117,14 +117,3 @@ The tagger runs automatically after data processing. It reads from `processed_da
 Most processing scripts will automatically download their dataset if the local path is missing:
 - GitHub repos → `git clone`
 - HuggingFace datasets → download parquet/zip via URL
-
-No manual data setup is required for most datasets.
-
-## Requirements
-
-```
-openai
-tiktoken
-pandas
-pyarrow
-```
