@@ -318,7 +318,11 @@ def main():
 
     input_dir = sys.argv[1]
     api_key = sys.argv[2]
-    max_samples = int(sys.argv[3]) if len(sys.argv) > 3 else None
+    max_samples_raw = sys.argv[3] if len(sys.argv) > 3 else None
+    if max_samples_raw is None or max_samples_raw.strip() == "" or max_samples_raw.strip().lower() == "all":
+        max_samples = None
+    else:
+        max_samples = int(max_samples_raw)
     output_dir = sys.argv[4] if len(sys.argv) > 4 else "tagged_data"
     model = sys.argv[5] if len(sys.argv) > 5 else "gpt-4"
 

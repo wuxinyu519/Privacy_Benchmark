@@ -17,7 +17,7 @@ Privacy_Benchmark/
 │   ├── govreport/
 │   └── us_bizdata/
 │
-├── process/                   # Processing scripts (one per dataset + tagger)
+├── process/                   # Processing scripts (one per dataset)
 │   ├── qmsum.py               # 1. QMSum meeting transcripts
 │   ├── fortress.py             # 2. Fortress adversarial/benign prompts
 │   ├── confaide.py             # 3. ConfAIde privacy norms
@@ -26,8 +26,10 @@ Privacy_Benchmark/
 │   ├── confidential_biz.py     # 6. Confidential business excerpts
 │   ├── pku_saferlhf.py         # 7. PKU-SafeRLHF national security
 │   ├── govreport.py            # 8. GovReport summaries
-│   ├── us_bizdata.py           # 9. US business data
-│   └── gpt_tagger.py           # GPT-4 inference (3-perspective tagging)
+│   └── us_bizdata.py           # 9. US business data
+│
+├── gpt_infer/                 # GPT inference
+│   └── gpt_tagger.py           # GPT-4 tagging (3-perspective)
 │
 ├── scripts/                   # Entry point
 │   └── run.sh                  # Main runner script
@@ -55,36 +57,39 @@ Privacy_Benchmark/
 
 ## Quick Start
 
-### 1. Run with sampling (default: 10 per dataset)
-
 ```bash
 cd scripts
 bash run.sh
 ```
 
-### 2. Run with custom sample size
+All configuration is done by editing `scripts/run.sh` directly.
+
+### Sampling Config
+
+At the top of `run.sh`, find:
 
 ```bash
-bash run.sh 50       # 50 samples per dataset
+NUM_SAMPLES=10                 # <-- set number per dataset, or "all" for full data
 ```
 
-### 3. Run full data (no sampling)
+- Sample 10 per dataset: `NUM_SAMPLES=10`
+- Sample 50: `NUM_SAMPLES=50`
+- Full data: `NUM_SAMPLES="all"`
+
+### GPT Tagging Config
+
+Also at the top of `run.sh`:
 
 ```bash
-bash run.sh all
+API_KEY=""                     # <-- paste your OpenAI API key here
+MODEL="gpt-4o"                 # <-- model to use
 ```
 
-### 4. GPT Tagging
-
-Edit `scripts/run.sh` and set your config at the bottom:
-
-```bash
-API_KEY="sk-xxx"           # your OpenAI API key
-MAX_SAMPLES_TAG=10         # samples to tag per file (remove for all)
-MODEL="gpt-4"              # model to use
-```
+The tagger reuses `NUM_SAMPLES` — if you set `NUM_SAMPLES=10`, GPT tags 10 samples per file; if `NUM_SAMPLES="all"`, it tags everything.
 
 The tagger runs automatically after data processing. It reads from `processed_data/` and writes to `tagged_data/`.
+
+> **Note:** If `processed_data/` already contains JSONL files, the data processing step (1-9) is skipped automatically. To re-process, delete the `processed_data/` directory first.
 
 ## Output Format
 
