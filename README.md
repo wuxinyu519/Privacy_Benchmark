@@ -59,7 +59,7 @@ Privacy_Benchmark/
 
 ```bash
 cd scripts
-bash run.sh
+sh run.sh
 ```
 
 All configuration is done by editing `scripts/run.sh` directly.
