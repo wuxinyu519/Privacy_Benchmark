@@ -30,8 +30,6 @@ Output format:
 
 # ============================================================
 # Per-dataset prompt templates
-# Each template only describes what the dataset is about,
-# then asks GPT to freely generate tags from 3 perspectives.
 # ============================================================
 TEMPLATES = {
 
