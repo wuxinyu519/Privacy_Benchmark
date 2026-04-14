@@ -40,7 +40,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 2a. Fortress Benign - Safe prompts
 "fortress_benign": """This text is from the Fortress dataset (benign split) — a collection of user requests that appear safe and non-malicious. These are everyday questions or tasks a user might ask an AI assistant.
@@ -49,7 +49,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 2b. Fortress Risky - Adversarial prompts
 "fortress_risky": """This text is from the Fortress dataset (adversarial split) — a collection of user prompts designed to test AI safety. These prompts may use social engineering, obfuscation, roleplay, or other techniques to attempt to elicit harmful, dangerous, or illegal information.
@@ -58,7 +58,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 3. ConfAIde - Privacy norms and contextual integrity
 "confaide": """This text is from the ConfAIde dataset — a benchmark for evaluating privacy norms and contextual integrity. It contains scenarios about information sharing between people in various relationships (co-workers, classmates, family members) and asks whether sharing certain private information is appropriate given the context.
@@ -67,7 +67,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 4. AgentLeak - Agent scenarios with PII in private vault
 "agentleak": """This text is from the AgentLeak dataset — a benchmark for testing whether AI agents leak private information. It contains a user query paired with private records (patient data, financial records, legal cases, employee files, etc.) that the agent has access to. The records may contain PII such as SSNs, medical diagnoses, financial details, and more.
@@ -77,7 +77,7 @@ Text:
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
 Do NOT repeat any actual PII values in your tags.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 5. Sensitive Document Classification - Business documents/emails
 "sensitive_doc": """This text is from the Sensitive Document Classification dataset — a collection of synthetic business documents including memos, emails, reports, policy documents, meeting minutes, and internal communications across various business domains and sensitivity levels.
@@ -86,7 +86,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 6. Confidential Business Excerpts - Synthetic business text with injected secrets
 "confidential_biz": """This text is from a dataset of synthetic business excerpts that contain injected confidential information. Each excerpt describes a business scenario where certain sentences reveal information that should not be publicly disclosed — such as unreleased plans, internal challenges, or strategic decisions.
@@ -95,7 +95,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 7. PKU-SafeRLHF - National security harmful Q&A
 "pku_national_security": """This text is from the PKU-SafeRLHF dataset, specifically filtered for content flagged as "Endangering National Security." It contains a user query paired with an AI-generated response that was labeled as harmful. The content may involve topics related to national security, public safety, or other high-risk areas.
@@ -105,7 +105,7 @@ Text:
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
 Do NOT repeat any harmful instructions in your tags.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 8. GovReport - Government report summaries
 "govreport": """This text is from the GovReport dataset — a collection of summaries of U.S. government reports from the Government Accountability Office (GAO) and Congressional Research Service (CRS). These summaries cover topics such as defense, healthcare, federal programs, budgets, audits, and policy evaluations.
@@ -114,7 +114,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 # 9. US Business Data - Company descriptions
 "us_bizdata": """This text is from a dataset of US publicly traded company descriptions. Each entry describes a company's business operations, products, services, market segments, and strategic focus areas. The data includes companies across sectors such as technology, finance, healthcare, and more.
@@ -123,7 +123,7 @@ Text:
 {instruction}
 
 Analyze this text and generate sensitivity tags from three perspectives: individual, company, and government.
-Output JSON array of tags:""",
+Output JSON array of tags in English only:""",
 
 }
 
