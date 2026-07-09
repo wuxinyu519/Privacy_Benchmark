@@ -5,6 +5,10 @@
 #   bash run_step1_process_data.sh          # default 1 sample per dataset (smoke test)
 #
 # For a real run, set NUM_SAMPLES=1000 (see README.md for the resulting row counts).
+#
+# Sampling is random, not first-N: each process/*.py script picks rows via
+# random.sample() with a fixed random.seed(42), so results are reproducible
+# across re-runs but not a positional slice of the source data.
 
 set -e
 

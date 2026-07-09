@@ -87,6 +87,10 @@ then tag them incrementally in smaller batches to control API cost. Both scripts
 default to `NUM_SAMPLES=1` (cheap smoke test / prompt-quality check). For a real run,
 set `NUM_SAMPLES=1000` in both.
 
+When `NUM_SAMPLES` is less than the dataset size, `process/*.py` selects rows via
+`random.sample()` with a fixed `random.seed(42)` — not the first N rows — so runs are
+random but reproducible across re-runs.
+
 **Row counts at `NUM_SAMPLES=1000`** (each dataset is capped by however many rows
 actually exist in its source — several have fewer than 1000 available):
 
