@@ -12,7 +12,7 @@
 
 set -e
 
-NUM_SAMPLES=1                  # <-- set number per dataset; 1000 for a real run, or "all" for full data
+NUM_SAMPLES=1000                  # <-- set number per dataset; 1000 for a real run, or "all" for full data
 OUTPUT_DIR="../processed_data"
 
 mkdir -p "$OUTPUT_DIR"

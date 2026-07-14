@@ -6,12 +6,12 @@
 #   bash run_step2_gpt_tagger.sh
 #
 # Run this after run_step1_process_data.sh has populated ../processed_data/.
-# Default is 1 (smoke test / prompt-quality check). For a real run, set
+# Default is 5 (smoke test / prompt-quality check). For a real run, set
 # NUM_SAMPLES=1000 (see README.md for the resulting row counts).
 
 set -e
 
-NUM_SAMPLES=1                  # <-- how many per file to tag; 1000 for a real run, or "all"
+NUM_SAMPLES=5                  # <-- how many per file to tag; 1000 for a real run, or "all"
 OUTPUT_DIR="../processed_data"                          # <-- input, produced by step 1
 TAGGED_DIR="../tagged_data"
 API_KEY="${OPENAI_API_KEY:-}"  # <-- reads from env var; `export OPENAI_API_KEY=sk-...` before running (never hardcode a real key here — this file is committed to git)
